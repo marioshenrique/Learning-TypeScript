@@ -45,5 +45,42 @@ class Animal {
         Animal.totalCreated++
     }
 }
-
+console.log("Exercise 2 ----------------------------")
+console.log(Animal.totalCreated) // 0
+const animal_01 = new Animal("Loki", 3, "Dog")
+const animal_02 = new Animal("Kira", 3, "Dog")
+const animal_03 = new Animal("Bruce", 10, "Dog")
 console.log(Animal.totalCreated)
+console.log("---------------------------------------")
+
+// Exercise 3: Global Settings Manager
+
+/*
+
+Create a Configuration Class that:
+
+- has a static property currentTheme with an initial value of clear
+- has a static method changeTheme that changes the value of currentTheme
+
+*/
+
+type Theme = "clear" | "dark"
+
+class Configuration {
+    static currentTheme: string = "clear"
+
+    static changeTheme(theme: Theme): void {
+        if (theme === "clear" || theme === "dark") {
+            console.log("The theme has been modified")
+            Configuration.currentTheme = theme
+        } else {
+            console.log("The theme has not been modified")
+        }
+    }
+}
+
+console.log("Exercise 3 ----------------------------")
+console.log(Configuration.currentTheme)
+Configuration.changeTheme("dark")
+console.log(Configuration.currentTheme)
+console.log("---------------------------------------")
