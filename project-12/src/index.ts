@@ -206,3 +206,54 @@ changeColor(vehicleWithoutPlate, "black")
 console.log(describeVehicle(vehicleWithoutPlate))
 
 console.log("----------------------------")
+
+/*
+
+Exercise 5: Interface with Functions
+
+Create an interface 'Converter' that defines the signature of a
+function that:
+
+- Receives a numeric value (number)
+- Returns a formatted string
+
+Then:
+
+- Create a function 'convertToCurrency' that implements the 'Converter' interface,
+formatting the number into a currency format.
+
+*/
+
+const CURRENTQUOTE = {
+    USD: 0.1759,
+    EUR: 0.1549,
+    GBP: 0.1322 
+}
+
+interface Converter {
+    (param: number): string
+}
+
+const convertBRLToUSD: Converter = (value) => {
+    const convertedValue = value * CURRENTQUOTE.USD
+    return `Converted value: ${convertedValue}`
+}
+
+const convertBRLToEUR: Converter = (value) => {
+    const convertedValue = value * CURRENTQUOTE.EUR
+    return `Converted value: ${convertedValue}`
+}
+
+const convertBRLToGBP: Converter = (value) => {
+    const convertedValue = value * CURRENTQUOTE.GBP
+    return `Converted value: ${convertedValue}`
+}
+
+console.log("Exercise 5 -----------------")
+console.log("USD")
+console.log(convertBRLToUSD(20))
+console.log("EUR")
+console.log(convertBRLToEUR(20))
+console.log("GBP")
+console.log(convertBRLToGBP(20))
+console.log("----------------------------")
